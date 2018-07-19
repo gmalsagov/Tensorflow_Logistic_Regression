@@ -1,22 +1,14 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import tensorflow as tf
-from collections import Counter
 import matplotlib.pyplot as plt
-import os
 import numpy as np
 import pandas as pd
-import csv
-import string
-import requests
-import io
-from zipfile import ZipFile
-from keras.utils.np_utils import to_categorical
 from tensorflow.contrib import learn
 from tensorflow.python.framework import ops
 ops.reset_default_graph()
 
-from data_helper import load_data, normalize_data, loadData, randomize_data
+from data_helper import loadData, randomize_data
 
 
 # Start a graph session
@@ -33,7 +25,7 @@ texts = texts + test_data.keys()
 targets = train_data.values()
 targets = targets + test_data.values()
 
-# Choose max text word length at 25
+# Choose max text word length at 40 to cover most data
 sentence_size = 40
 min_word_freq = 3
 
